@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicolas Tamayo | Creador de Contenido UGC</title>
+<meta name="description" content="Portafolio de Nicolas Tamayo, creador de contenido UGC en Colombia. Videos de referencia, contacto y redes.">
+<style>
+  :root{
+    --bg:#faf8f5;
+    --bg-alt:#ffffff;
+    --ink:#1c1a17;
+    --ink-soft:#5c574f;
+    --accent:#e05d38;
+    --accent-ink:#ffffff;
+    --border:#e8e2d9;
+    --radius:16px;
+    --max:1080px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#151311;
+      --bg-alt:#1e1b18;
+      --ink:#f5f1ea;
+      --ink-soft:#b8b0a3;
+      --border:#33302b;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .logo{font-weight:700;font-size:1.1rem;letter-spacing:-0.02em;text-decoration:none;}
+  .nav-links{display:flex;gap:28px;font-size:0.92rem;}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{
+    background:var(--accent);color:var(--accent-ink);
+    padding:9px 18px;border-radius:999px;text-decoration:none;
+    font-size:0.88rem;font-weight:600;white-space:nowrap;
+  }
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{padding:88px 0 64px;text-align:center;}
+  .eyebrow{
+    display:inline-block;font-size:0.8rem;font-weight:600;color:var(--accent);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px;
+  }
+  h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.08;letter-spacing:-0.03em;margin:0 0 20px;}
+  .hero p{font-size:1.15rem;color:var(--ink-soft);max-width:600px;margin:0 auto 32px;}
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:0.95rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 20px -8px var(--accent);}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink);}
+
+  /* ABOUT */
+  section{padding:64px 0;}
+  .section-title{font-size:1.8rem;letter-spacing:-0.02em;margin:0 0 8px;}
+  .section-sub{color:var(--ink-soft);margin:0 0 36px;max-width:560px;}
+  .about-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-card{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;
+  }
+  .about-card .tag{font-size:0.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:block;}
+  .about-card p{margin:0;color:var(--ink-soft);font-size:0.95rem;}
+  .bio{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    padding:32px;margin-top:20px;font-size:1.02rem;color:var(--ink-soft);
+  }
+  .bio strong{color:var(--ink);}
+
+  /* PORTFOLIO */
+  .video-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  }
+  @media (max-width:760px){ .video-grid{grid-template-columns:1fr;} }
+  .video-card{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .video-frame{
+    position:relative;width:100%;aspect-ratio:9/16;background:#000;
+  }
+  .video-frame iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+  }
+  .video-label{padding:14px 18px;font-size:0.9rem;font-weight:600;color:var(--ink-soft);}
+
+  /* CONTACT */
+  .contact-box{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    padding:44px;text-align:center;
+  }
+  .contact-box h2{margin:0 0 10px;font-size:1.7rem;letter-spacing:-0.02em;}
+  .contact-box p{color:var(--ink-soft);margin:0 0 28px;}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .contact-links a{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;border:1px solid var(--border);
+    text-decoration:none;font-weight:600;font-size:0.92rem;color:var(--ink);
+    transition:border-color .2s, color .2s;
+  }
+  .contact-links a:hover{border-color:var(--accent);color:var(--accent);}
+
+  footer{padding:32px 0;text-align:center;color:var(--ink-soft);font-size:0.85rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Nicolas Tamayo</a>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/573226978846" target="_blank" rel="noopener">Escríbeme</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Creador de contenido UGC</span>
+    <h1>Contenido auténtico que conecta con tu audiencia</h1>
+    <p>Soy Nicolas Tamayo, Ingeniero Multimedia con background como actor de teatro. Grabo videos naturales y persuasivos para marcas que buscan contenido real, no publicidad forzada.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#portafolio">Ver portafolio</a>
+      <a class="btn btn-ghost" href="https://wa.me/573226978846" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <h2 class="section-title">Sobre mí</h2>
+    <p class="section-sub">Un poco de contexto sobre quién está detrás de la cámara.</p>
+    <div class="bio">
+      Tengo <strong>27 años</strong>, soy <strong>Ingeniero Multimedia</strong> de profesión y actualmente soy dueño de un negocio de <strong>ecommerce</strong> que opera en <strong>Guatemala y Colombia</strong>. Vengo de un background como <strong>actor de teatro</strong>, así que me desenvuelvo con naturalidad frente a cámara: sé transmitir emociones, seguir un guion y adaptar el tono según lo que la marca necesite. Combino esa base actoral con visión de negocio para entender qué mensaje realmente convierte.
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="tag">Actuación</span>
+        <p>Background como actor de teatro: manejo de cámara, expresividad y naturalidad frente a lente.</p>
+      </div>
+      <div class="about-card">
+        <span class="tag">Negocio</span>
+        <p>Gracias a mi negocio actual, tengo conocimiento de primera mano en videos de venta de productos físicos y digitales: sé qué contenido realmente convierte.</p>
+      </div>
+      <div class="about-card">
+        <span class="tag">Multimedia</span>
+        <p>Ingeniero Multimedia: sé de edición, guion y producción, no solo de grabar. Y sobre todo, disfruto la producción y postproducción — lo hago porque me gusta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portafolio">
+  <div class="wrap">
+    <h2 class="section-title">Portafolio</h2>
+    <p class="section-sub">Una muestra de mi trabajo frente a cámara.</p>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://drive.google.com/file/d/19rwtWeDGpkkV5aww7X9FdKJxc2Z7B93X/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">Promoción Andina Light</div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://drive.google.com/file/d/1Akiw60PsUH77KeOxcug1XZJV5ayzzFAY/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">Vlog, un día recibiendo nuevo local</div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://drive.google.com/file/d/1l1PNW_AiVL4tS1N-Q5k3EYY1fmGWsOmf/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">UGC Minoxidil</div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://drive.google.com/file/d/10ukBbgw5H4xGiZdMUqdKPkCxRc_zctXA/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">Lifestyle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>¿Trabajamos juntos?</h2>
+      <p>Disponible para colaboraciones UGC con marcas. Escríbeme por cualquiera de estos canales.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/573226978846" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.tiktok.com/@rogotm99" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/nicolastm99" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 Nicolas Tamayo — Creador de contenido UGC
+  </div>
+</footer>
+
+</body>
+</html>
